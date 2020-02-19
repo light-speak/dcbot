@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f9e281f-0b9a-4afb-ac31-2bd5cf1b13b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service-command/proto/command.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dcbot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dcbot.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/client-main/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
