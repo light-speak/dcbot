@@ -28,7 +28,9 @@ func main() {
         msg := tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
 
         if update.Message.IsCommand() {
-            msg = tgbotapi.NewMessage(update.Message.Chat.ID, "Command: "+update.Message.Command()+"test"+
+            msg = tgbotapi.NewMessage(update.Message.Chat.ID, "Command: "+
+                update.Message.Command()+
+                "\nText: "+
                 update.Message.Text)
         }
         msg.ReplyToMessageID = update.Message.MessageID
