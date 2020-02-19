@@ -18,9 +18,10 @@ func main() {
     }
     bot.Debug = true
     _, err = bot.RemoveWebhook()
-    history, err := bot.GetUpdates(tgbotapi.UpdateConfig{})
-    for h := range history {
-        log.Printf("%+v\n", h)
+    history, err := bot.GetUpdatesChan(tgbotapi.UpdateConfig{})
+    if history != nil {
+        log.Println("清除WebHook")
+        history.Clear()
     }
     webHook := botHost + "/" + bot.Token
     log.Printf("WebHook为： %s\n", webHook)
