@@ -18,6 +18,7 @@ func main() {
     }
     bot.Debug = true
     _, err = bot.RemoveWebhook()
+    _, err = bot.GetUpdates(tgbotapi.UpdateConfig{})
     _, err = bot.SetWebhook(tgbotapi.NewWebhook(botHost + ":" + botPort + "/" + bot.Token))
     if err != nil {
         log.Fatal(err)
