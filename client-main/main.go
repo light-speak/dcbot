@@ -24,14 +24,14 @@ func main() {
         if update.Message == nil {
             continue
         }
-        log.Printf("%+v\n", update)
+        //log.Printf("%+v\n", update)
         msg := tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
 
         if update.Message.IsCommand() {
             msg = tgbotapi.NewMessage(update.Message.Chat.ID, "Command: "+
                 update.Message.Command()+
                 "\nText: "+
-                update.Message.Text)
+                update.Message.CommandArguments())
         }
         msg.ReplyToMessageID = update.Message.MessageID
         _, _ = bot.Send(msg)
