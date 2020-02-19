@@ -17,13 +17,14 @@ func main() {
         log.Fatal(err)
     }
     bot.Debug = true
-    res, err := bot.RemoveWebhook()
-    log.Println(res)
+    _, err = bot.RemoveWebhook()
     history, err := bot.GetUpdates(tgbotapi.UpdateConfig{})
     for h := range history {
         log.Printf("%+v\n", h)
     }
-    _, err = bot.SetWebhook(tgbotapi.NewWebhook(botHost + ":" + botPort + "/" + bot.Token))
+    webHook := botHost + ":" + botPort + "/" + bot.Token
+    log.Printf("WebHook为： %s\n", webHook)
+    _, err = bot.SetWebhook(tgbotapi.NewWebhook(webHook))
     if err != nil {
         log.Fatal(err)
     }
