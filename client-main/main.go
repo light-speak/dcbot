@@ -17,7 +17,8 @@ func main() {
         log.Fatal(err)
     }
     bot.Debug = true
-    _, err = bot.RemoveWebhook()
+    res, err := bot.RemoveWebhook()
+    log.Println(res)
     history, err := bot.GetUpdates(tgbotapi.UpdateConfig{})
     for h := range history {
         log.Printf("%+v\n", h)
