@@ -22,7 +22,7 @@ func main() {
     for h := range history {
         log.Printf("%+v\n", h)
     }
-    webHook := botHost + ":" + botPort + "/" + bot.Token
+    webHook := botHost + "/" + bot.Token
     log.Printf("WebHook为： %s\n", webHook)
     _, err = bot.SetWebhook(tgbotapi.NewWebhook(webHook))
     if err != nil {
