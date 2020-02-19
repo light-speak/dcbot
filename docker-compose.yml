@@ -4,5 +4,29 @@ services:
   client-main:
     build:
       ./client-main
+    networks:
+      dcbot-network:
+        ipv4_address: 172.21.0.10
     environment:
       BOT_TOKEN: 1070945563:AAGVgR7KIF9V6rSHvAoETUgCtSk73omHyrU
+
+
+
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 33061:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "ZE7w5VJDVbHQCAu0"
+    restart: unless-stopped
+    networks:
+      dcbot-network:
+        ipv4_address: 172.21.0.101
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./db/conf:/etc/mysql/conf.d
+      - ./db/logs:/var/log/mysql
+networks:
+  dcbot-network:
+    external: true

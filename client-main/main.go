@@ -13,7 +13,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    bot.Debug = true
+    bot.Debug = false
 
     _, err = bot.RemoveWebhook()
     config := tgbotapi.UpdateConfig{}
@@ -25,5 +25,12 @@ func main() {
             continue
         }
         log.Printf("%+v\n", update)
+        msg := tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
+
+        if update.Message.IsCommand() {
+            msg = tgbotapi.NewMessage(update.Message.Chat.ID, "Command: " + update.Message.Text )
+        }
+        msg.ReplyToMessageID = update.Message.MessageID
+        _, _ = bot.Send(msg)
     }
 }

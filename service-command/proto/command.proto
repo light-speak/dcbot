@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto;
+
+service CommandService {
+    rpc Create(RegisterRequest) returns (Response) {}
+}
+
+message Command {
+	int64 id = 1;
+	string command = 2;
+	string service = 3;
+}
