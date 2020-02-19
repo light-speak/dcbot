@@ -6,5 +6,3 @@ services:
       ./client-main
     environment:
       BOT_TOKEN: 1070945563:AAGVgR7KIF9V6rSHvAoETUgCtSk73omHyrU
-      BOT_HOST: https://bot1.ai-friday.com
-      BOT_PORT: 8443
