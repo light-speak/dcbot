@@ -3,11 +3,32 @@ syntax = "proto3";
 package proto;
 
 service CommandService {
-    rpc Create(RegisterRequest) returns (Response) {}
+    rpc find(CommandRequest) returns (Response) {}
+    rpc send(ActionRequest) returns (Response) {}
 }
 
 message Command {
 	int64 id = 1;
 	string command = 2;
 	string service = 3;
+
+	enum CommandStatus{
+		ENABLE = 0;
+		DISABLE = 1;
+	}
+
+	CommandStatus status = 4;
+}
+
+message Response {
+    string message = 1;
+    string service = 2;
+}
+
+message CommandRequest {
+	string command = 1;
+}
+
+message ActionRequest {
+	string message = 1;
 }
