@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f9e281f-0b9a-4afb-ac31-2bd5cf1b13b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service-command/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-command/handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-command/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-command/proto/command.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/service-command/proto/command.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-command/proto/command.proto" beforeDir="false" afterPath="$PROJECT_DIR$/service-command/proto/command.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-command/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/service-command/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/client-main/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-command/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/service-command/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +85,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

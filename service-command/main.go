@@ -3,6 +3,7 @@ package main
 import (
     "fmt"
     "github.com/lty5240/dcbot/service-command/proto"
+    "github.com/micro/go-grpc"
     "github.com/micro/go-micro/v2"
     "github.com/micro/go-micro/v2/registry"
     "github.com/micro/go-plugins/registry/consul/v2"
@@ -29,7 +30,7 @@ func main() {
             registryServer,
         }
     })
-    srv := micro.NewService(
+    srv := grpc.NewService(
         micro.Registry(reg),
         micro.Name("dcbot.service.command"),
     )
