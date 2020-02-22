@@ -10,7 +10,7 @@ services:
     environment:
       BOT_TOKEN: 1070945563:AAGVgR7KIF9V6rSHvAoETUgCtSk73omHyrU
 
-  server-command:
+  service-command:
     build:
       ./service-command
     networks:
