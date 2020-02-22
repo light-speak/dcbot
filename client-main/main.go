@@ -4,14 +4,27 @@ import (
     "context"
     "github.com/go-telegram-bot-api/telegram-bot-api"
     commandProto "github.com/lty5240/dcbot/service-command/proto"
-    "github.com/micro/go-grpc/client"
+    "github.com/micro/go-grpc"
+    "github.com/micro/go-micro/v2"
+    "github.com/micro/go-micro/v2/registry"
+    "github.com/micro/go-plugins/registry/consul/v2"
     "log"
     "os"
 )
 
 func main() {
     botToken := os.Getenv("BOT_TOKEN")
+    registryServer := os.Getenv("REGISTRY_SERVER")
 
+    reg := consul.NewRegistry(func(opt *registry.Options) {
+        opt.Addrs = []string{
+            registryServer,
+        }
+    })
+    srv := grpc.NewService(
+        micro.Registry(reg),
+        micro.Name("dcbot.service.command"),
+    )
     bot, err := tgbotapi.NewBotAPI(botToken)
     if err != nil {
         log.Fatal(err)
@@ -23,7 +36,7 @@ func main() {
     config.Timeout = 60
     updates, err := bot.GetUpdatesChan(config)
 
-    commandClient := commandProto.NewCommandServiceClient("dcbot.service.command", client.DefaultClient)
+    commandClient := commandProto.NewCommandServiceClient("dcbot.service.command", srv.Client())
 
     for update := range updates {
         if update.Message == nil {
