@@ -4,6 +4,7 @@ import (
     "errors"
     "github.com/lty5240/dcbot/service-command/proto"
     "golang.org/x/net/context"
+    "log"
 )
 
 type commandService struct {
@@ -11,6 +12,7 @@ type commandService struct {
 }
 
 func (s commandService) Find(ctx context.Context, req *proto.CommandRequest, res *proto.Response) error {
+    log.Println("查找命令：" + req.Command)
     command, err := s.repository.FindByCommand(req.Command)
     if err != nil {
         return err
