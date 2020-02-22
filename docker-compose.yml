@@ -10,8 +10,14 @@ services:
     environment:
       BOT_TOKEN: 1070945563:AAGVgR7KIF9V6rSHvAoETUgCtSk73omHyrU
 
-
-
+  server-command:
+    build:
+      ./service-command
+    networks:
+      dcbot-network:
+        ipv4_address: 172.21.0.11
+    environment:
+      REGISTRY_SERVER: 172.21.0.150:8500
 
   mysql:
     image: mysql:5.7
@@ -28,6 +34,25 @@ services:
       - ./db/db:/var/lib/mysql
       - ./db/conf:/etc/mysql/conf.d
       - ./db/logs:/var/log/mysql
+
+  consul1:
+    image: consul
+    container_name: consul-1
+    networks:
+      dcbot-network:
+        ipv4_address: 172.21.0.150
+    command: agent -server -bootstrap-expect=1 -node=consul-1 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
+  consul-ui:
+    image: consul
+    container_name: consul-2
+    command: agent -retry-join=consul-1 -node=consul-2 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -ui
+    ports:
+      - 8500:8500
+    depends_on:
+      - consul1
+    networks:
+      dcbot-network:
+        ipv4_address: 172.21.0.151
 networks:
   dcbot-network:
     external: true

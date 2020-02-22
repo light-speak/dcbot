@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2f9e281f-0b9a-4afb-ac31-2bd5cf1b13b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/client-main/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-command/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/service-command/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-main/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/client-main/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-main/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/client-main/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +39,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/service-command" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
