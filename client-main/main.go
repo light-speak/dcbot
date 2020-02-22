@@ -2,6 +2,7 @@ package main
 
 import (
     "context"
+    "fmt"
     "github.com/go-telegram-bot-api/telegram-bot-api"
     commandProto "github.com/lty5240/dcbot/service-command/proto"
     "github.com/micro/go-micro/v2/registry"
@@ -25,6 +26,7 @@ func main() {
         service.Name("dcbot.client.main"),
         service.Registry(reg),
     )
+    srv.Init()
     bot, err := tgbotapi.NewBotAPI(botToken)
     if err != nil {
         log.Fatal(err)
@@ -60,5 +62,9 @@ func main() {
         }
         msg.ReplyToMessageID = update.Message.MessageID
         _, _ = bot.Send(msg)
+    }
+
+    if err := srv.Run(); err != nil {
+        fmt.Printf("服务运行异常：%s \n", err)
     }
 }
