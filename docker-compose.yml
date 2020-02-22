@@ -28,8 +28,7 @@ services:
       - 33061:3306
     environment:
       MYSQL_DATABASE: dcbot
-      MYSQL_ROOT_PASSWORD: LTYlty0123
-    restart: unless-stopped
+      MYSQL_ROOT_PASSWORD: lty01234
     networks:
       dcbot-network:
         ipv4_address: 172.21.0.101
