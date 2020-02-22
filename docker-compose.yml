@@ -9,7 +9,7 @@ services:
         ipv4_address: 172.21.0.10
     environment:
       BOT_TOKEN: 1070945563:AAGVgR7KIF9V6rSHvAoETUgCtSk73omHyrU
-
+      REGISTRY_SERVER: 172.21.0.150:8500
   service-command:
     build:
       ./service-command
