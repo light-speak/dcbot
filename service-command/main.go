@@ -3,8 +3,8 @@ package main
 import (
     "fmt"
     "github.com/lty5240/dcbot/service-command/proto"
-    "github.com/micro/go-micro/service"
     "github.com/micro/go-micro/v2/registry"
+    "github.com/micro/go-micro/v2/service"
     "github.com/micro/go-micro/v2/service/grpc"
     "github.com/micro/go-plugins/registry/consul/v2"
     "log"
