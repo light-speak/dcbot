@@ -27,8 +27,8 @@ services:
     ports:
       - 33061:3306
     environment:
-      MYSQL_DATABASE: "dcbot"
-      MYSQL_ROOT_PASSWORD: "LTYlty0123"
+      MYSQL_DATABASE: dcbot
+      MYSQL_ROOT_PASSWORD: LTYlty0123
     restart: unless-stopped
     networks:
       dcbot-network:
