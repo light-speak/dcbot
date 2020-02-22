@@ -6,11 +6,11 @@ import (
     "golang.org/x/net/context"
 )
 
-type service struct {
+type commandService struct {
     repository Repository
 }
 
-func (s service) Find(ctx context.Context, req *proto.CommandRequest, res *proto.Response) error {
+func (s commandService) Find(ctx context.Context, req *proto.CommandRequest, res *proto.Response) error {
     command, err := s.repository.FindByCommand(req.Command)
     if err != nil {
         return err
@@ -22,7 +22,7 @@ func (s service) Find(ctx context.Context, req *proto.CommandRequest, res *proto
     return nil
 }
 
-func (s service) Send(ctx context.Context, req *proto.ActionRequest, res *proto.Response) error {
+func (s commandService) Send(ctx context.Context, req *proto.ActionRequest, res *proto.Response) error {
     res.Message = "测试命令是否执行成功"
     return nil
 }

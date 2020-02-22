@@ -4,9 +4,9 @@ import (
     "context"
     "github.com/go-telegram-bot-api/telegram-bot-api"
     commandProto "github.com/lty5240/dcbot/service-command/proto"
-    "github.com/micro/go-grpc"
-    "github.com/micro/go-micro/v2"
+    "github.com/micro/go-micro/service"
     "github.com/micro/go-micro/v2/registry"
+    "github.com/micro/go-micro/v2/service/grpc"
     "github.com/micro/go-plugins/registry/consul/v2"
     "log"
     "os"
@@ -22,8 +22,8 @@ func main() {
         }
     })
     srv := grpc.NewService(
-        micro.Registry(reg),
-        micro.Name("dcbot.service.command"),
+        service.Name("dcbot.client.main"),
+        service.Registry(reg),
     )
     bot, err := tgbotapi.NewBotAPI(botToken)
     if err != nil {
