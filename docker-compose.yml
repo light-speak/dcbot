@@ -18,12 +18,12 @@ services:
         ipv4_address: 172.21.0.11
     environment:
       REGISTRY_SERVER: 172.21.0.150:8500
-      DB_HOST: 172.21.0.101:33061
+      DB_HOST: mysql
       DB_USER: root
       DB_PASSWORD: LTYlty0123
 
   mysql:
-    image: mysql:5.7
+    image: mysql:5.6
     ports:
       - 33061:3306
     environment:
