@@ -2,10 +2,11 @@ version: '3.7'
 
 networks:
   dcbot-network:
-    name: dcbot-networks
-    ipam:
-      config:
-        - subnet: 172.21.0.0/16
+#    name: dcbot-networks
+#    ipam:
+#      config:
+#        - subnet: 172.21.0.0/16
+    external: true
 
 services:
   client-main:
