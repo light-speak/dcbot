@@ -17,7 +17,7 @@ services:
         ipv4_address: 172.21.0.10
     environment:
       BOT_TOKEN: 1070945563:AAGVgR7KIF9V6rSHvAoETUgCtSk73omHyrU
-      REGISTRY_SERVER: etcd1:8500
+      REGISTRY_SERVER: etcd1:2379
   service-command:
     build:
       ./service-command
@@ -25,7 +25,7 @@ services:
       dcbot-network:
         ipv4_address: 172.21.0.11
     environment:
-      REGISTRY_SERVER: etcd1:8500
+      REGISTRY_SERVER: etcd1:2379
       DB_HOST: mysql
       DB_USER: root
       DB_PASSWORD: LTYlty0123
