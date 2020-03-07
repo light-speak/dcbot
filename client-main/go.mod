@@ -9,7 +9,6 @@ replace github.com/testcontainers/testcontainer-go => github.com/testcontainers/
 require (
 	github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible
 	github.com/lty5240/dcbot/service-command v0.0.0-20200222084238-d563617c4128
-	github.com/micro/go-micro v1.18.0
-	github.com/micro/go-micro/v2 v2.1.0
-	github.com/micro/go-plugins/registry/consul/v2 v2.0.2
+	github.com/micro/go-micro/v2 v2.1.2
+	github.com/micro/go-plugins/registry/etcdv3/v2 v2.0.3
 )

@@ -1,5 +1,11 @@
 version: '3.7'
 
+networks:
+  dcbot-network:
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
+
 services:
   client-main:
     build:
@@ -9,7 +15,7 @@ services:
         ipv4_address: 172.21.0.10
     environment:
       BOT_TOKEN: 1070945563:AAGVgR7KIF9V6rSHvAoETUgCtSk73omHyrU
-      REGISTRY_SERVER: 172.21.0.150:8500
+      REGISTRY_SERVER: consul1:8500
   service-command:
     build:
       ./service-command
@@ -17,7 +23,7 @@ services:
       dcbot-network:
         ipv4_address: 172.21.0.11
     environment:
-      REGISTRY_SERVER: consul1:8500
+      REGISTRY_SERVER: etcd1:8500
       DB_HOST: mysql
       DB_USER: root
       DB_PASSWORD: LTYlty0123
@@ -37,24 +43,23 @@ services:
       - ./db/conf:/etc/mysql/conf.d
       - ./db/logs:/var/log/mysql
 
-  consul1:
-    image: consul
-    container_name: consul-1
-    networks:
-      dcbot-network:
-        ipv4_address: 172.21.0.150
-    command: agent -server -bootstrap-expect=1 -node=consul-1 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
-  consul-ui:
-    image: consul
-    container_name: consul-2
-    command: agent -retry-join=consul-1 -node=consul-2 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -ui
+  etcd1:
+    image: quay.io/coreos/etcd
+    container_name: etcd1
+    command:
+      /usr/local/bin/etcd
+      -name etcd1
+      -data-dir /etcd-data
+      -advertise-client-urls http://0.0.0.0:2379
+      -listen-client-urls http://0.0.0.0:2379
+#      -initial-cluster-token blue-etcd-cluster
+#      -initial-cluster etcd1=http://etcd1:2380,etcd2=http://etcd2:2380
+#      -initial-cluster-state new
     ports:
-      - 8500:8500
-    depends_on:
-      - consul1
+      - 2379
+      - 2380
     networks:
-      dcbot-network:
-        ipv4_address: 172.21.0.151
-networks:
-  dcbot-network:
-    external: true
+      - dcbot-network
+
+
+

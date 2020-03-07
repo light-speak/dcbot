@@ -8,7 +8,7 @@ import (
     "github.com/micro/go-micro/v2/registry"
     "github.com/micro/go-micro/v2/service"
     "github.com/micro/go-micro/v2/service/grpc"
-    "github.com/micro/go-plugins/registry/consul/v2"
+    "github.com/micro/go-plugins/registry/etcdv3/v2"
     "log"
     "os"
 )
@@ -17,7 +17,7 @@ func main() {
     botToken := os.Getenv("BOT_TOKEN")
     registryServer := os.Getenv("REGISTRY_SERVER")
 
-    reg := consul.NewRegistry(func(opt *registry.Options) {
+    reg := etcdv3.NewRegistry(func(opt *registry.Options) {
         opt.Addrs = []string{
             registryServer,
         }
