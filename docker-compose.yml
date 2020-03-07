@@ -2,6 +2,7 @@ version: '3.7'
 
 networks:
   dcbot-network:
+    name: dcbot-networks
     ipam:
       config:
         - subnet: 172.21.0.0/16
@@ -15,7 +16,7 @@ services:
         ipv4_address: 172.21.0.10
     environment:
       BOT_TOKEN: 1070945563:AAGVgR7KIF9V6rSHvAoETUgCtSk73omHyrU
-      REGISTRY_SERVER: consul1:8500
+      REGISTRY_SERVER: etcd1:8500
   service-command:
     build:
       ./service-command
