@@ -40,11 +40,6 @@ func main() {
 
     commandClient := commandProto.NewCommandServiceClient("dcbot.service.command", srv.Client())
 
-
-    if err := srv.Run(); err != nil {
-        fmt.Printf("服务运行异常：%s \n", err)
-    }
-
     for update := range updates {
         if update.Message == nil {
             continue
@@ -67,5 +62,9 @@ func main() {
         }
         msg.ReplyToMessageID = update.Message.MessageID
         _, _ = bot.Send(msg)
+    }
+
+    if err := srv.Run(); err != nil {
+        fmt.Printf("服务运行异常：%s \n", err)
     }
 }
